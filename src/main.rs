@@ -32,7 +32,7 @@ fn main() {
     for _ in 0..phrases_generated {
         for _ in 0..phrase.get_word_count() {
         // Find the word that matches the rolled numbers
-            let word = util::extract_word(file);
+            let word = util::extract_word(file, &roll_seq);
             phrase.add_word(word);
             roll_seq.gen_new_sequence();
         }

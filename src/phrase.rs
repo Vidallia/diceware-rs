@@ -46,8 +46,7 @@ pub mod util {
     // Lookup table to speedup searches
     const LINE_SKIPS: [usize;6] = [0, 1296, 2592, 3888, 5184, 6481];
 
-    pub fn extract_word(word_list: &str) -> String {
-        let roll_seq = RollSequence::new();
+    pub fn extract_word(word_list: &str, roll_seq: &RollSequence) -> String {
         let word: String = word_list.lines().skip(LINE_SKIPS[roll_seq.first_index()])
                                     .filter(|s| s.contains(&roll_seq.as_string()))
                                     .map(|w| w.split_whitespace())
