@@ -5,7 +5,6 @@ pub struct DwPhrase {
     phrase: Vec<String>,
     word_cnt: usize,
     // seperator: char
-    
 }
 
 impl DwPhrase {
@@ -29,7 +28,16 @@ impl DwPhrase {
                             .collect();
                 Some(ph) }
         }
+    }
+    // TODO: Maybe refactor this and the struct
+    pub fn get_word_count(&self) -> usize {
+        self.word_cnt
     } 
+
+    pub fn clear_phrase(&mut self) {
+        self.phrase.clear()
+    }
+    
 } // DwPhrase 
 
 
