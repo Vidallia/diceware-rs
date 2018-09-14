@@ -1,7 +1,7 @@
 name: diceware-rs
-version: 0.1.0
+version: 0.2.0
 author: Joshua Shope <haxrhax@gmail.com>
-about: Generate diceware passwords from the command line, fast and without hassle
+about: Generate diceware passphrases from the command line, fast and without much hassle
 args:
   - AMOUNT:
       help: Sets the number of passphrases generated (Defaults to 1) 
@@ -10,8 +10,17 @@ args:
   - length:
       help: The amount of unique words in the passphrase
       long: len
-      value_name: NUMBER
+      value_name: LENGTH
       takes_value: true
       default_value: "3"
+  - file:
+      help: The generated file's name that will contain the passphrases..
+      short: f
+      long: file
+      value_name: FILE
+      takes_value: true
+     
+      
+  
   
 

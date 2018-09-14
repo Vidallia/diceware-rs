@@ -13,8 +13,8 @@ impl DwPhrase {
     }
 
 
-    pub fn add_word(&mut self, word: String) {
-        self.phrase.push(word);
+    pub fn add_word(&mut self, word: &str) {
+        self.phrase.push(word.to_string());
     }
   
 

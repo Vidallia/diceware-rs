@@ -1,0 +1,28 @@
+KISS & YAGNI
+Bugs:
+- ** Write unit tests.
+- * pub fn get_word_count - Refactor
+- ** Figure out how to only need to creat a FileOut instance if the user use's the Flag **
+- ** Entering a non-existent path causes program to panic **
+
+Needs Implementing:
+- Allow for choice in amount of words generated
+    - Display warning if less than 3
+- Setup CLI
+    - ** Finish the file flag ** 
+    - Allow for passphrase generated to have random symbols instead of whitespace between words
+    - Allow for numbers to be added to password sequence as well
+    - Allow for user to have their own diceware word list
+    - Use more subcommands like: 
+    SUBCOMMANDS:
+    add          Add a new generator
+    dash         Show realtime dashboard with all generators
+    delete       Delete generator
+    eradicate    Delete all generators
+    help         Prints this message or the help of the given subcommand(s)
+    list         List all generators
+    rename       Rename generator
+
+Nice to Have:
+- Add border to output similar to how mysql's gui does it
+- Generate passwords to file of a given name
