@@ -4,7 +4,7 @@ author: Joshua Shope <haxrhax@gmail.com>
 about: Generate diceware passphrases from the command line, fast and without much hassle
 args:
   - AMOUNT:
-      help: Sets the number of passphrases generated (Defaults to 1) 
+      help: Sets the number of passphrases generated 
       default_value: "1"
       index: 1
   - length:
@@ -14,13 +14,9 @@ args:
       takes_value: true
       default_value: "3"
   - file:
-      help: The generated file's name that will contain the passphrases..
+      help: The generated file's name that will contain the generated passphrases.
       short: f
       long: file
       value_name: FILE
       takes_value: true
      
-      
-  
-  
-

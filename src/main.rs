@@ -22,27 +22,28 @@ fn main() {
                                         .unwrap());
 
     let phrases_generated =  matches.value_of("AMOUNT").unwrap().parse::<usize>().unwrap();
+    let mut cache = Vec::new();
     
-    let fpath = matches.value_of("file").unwrap_or("out.txt");
-    let mut fout = FileOut::new(String::from(fpath), String::from(""));
-      
-
     println!("Generated Phrase(s):\n");
     for _ in 0..phrases_generated {
         for _ in 0..phrase.get_word_count() {
             let word = util::extract_word(file, &roll_seq);
             phrase.add_word(&word);
-            fout.append_str(&word);
-            fout.append_str(" ");
             roll_seq.gen_new_sequence();
         }
-        fout.append_str("\n");
         if let Some(p) = phrase.as_string() {
-            println!("{}", p)
+            if matches.is_present("file") {
+                cache.push(p);
+            } else {
+                println!("{}", p);
+            }
         } else {
             break
         }
         phrase.clear_phrase();
     }
-    fout.write()
+    if let Some(fp) = matches.value_of("file") {
+        let out = FileOut::new(fp.to_string(), cache);
+        out.write(&phrase)
+    }
 }

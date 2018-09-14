@@ -4,7 +4,6 @@ use roll::RollSequence;
 pub struct DwPhrase {
     phrase: Vec<String>,
     word_cnt: usize,
-    // seperator: char
 }
 
 impl DwPhrase {
