@@ -14,14 +14,18 @@ impl FileOut {
         FileOut { path, contents}
     }
 
-    pub fn append_str(&mut self, data: &str, separator: &str)  {
-        self.contents.push(data.to_string());
-        self.contents.push(separator.to_string())   
+    pub fn append_str(&mut self, data: &str)  {
+        self.contents.push(data.to_string());  
     }
 
     pub fn write(&self, phrase: &DwPhrase) {
+        if self.contents.is_empty() { 
+            println!("\nNothing to write to the provided file..");
+            return 
+        }
+
         let path = Path::new(&self.path);
-        let display = path.display();
+        let display = path.display(); 
 
         let mut file = match File::create(&path) {
             Err(why) => panic!("Could not create: {} {}", display, why.description()),

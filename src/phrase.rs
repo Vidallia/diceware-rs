@@ -36,6 +36,10 @@ impl DwPhrase {
     pub fn clear_phrase(&mut self) {
         self.phrase.clear()
     }
+
+    pub fn char_count(&self) -> usize {
+        self.phrase.len()
+    }
     
 } // DwPhrase 
 

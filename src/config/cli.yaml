@@ -1,5 +1,5 @@
 name: diceware-rs
-version: 0.2.0
+version: 0.3.0
 author: Joshua Shope <haxrhax@gmail.com>
 about: Generate diceware passphrases from the command line, fast and without much hassle
 args:

@@ -2,13 +2,15 @@
 extern crate clap;
 use clap::App;
 
-pub mod roll;
-pub mod phrase;
-pub mod writef;
+mod roll;
+mod phrase;
+mod writef;
+mod cli;
 
 use roll::RollSequence;
 use phrase::{DwPhrase, util};
 use writef::FileOut;
+use cli::OutputDisplay;
 
 fn main() {
     let file = include_str!("dw-list.txt");
@@ -21,7 +23,10 @@ fn main() {
                                         .parse::<usize>()
                                         .unwrap());
 
-    let phrases_generated =  matches.value_of("AMOUNT").unwrap().parse::<usize>().unwrap();
+    let phrases_generated =  matches.value_of("AMOUNT")
+                                    .unwrap()
+                                    .parse::<usize>()
+                                    .unwrap();
     let mut cache = Vec::new();
     
     println!("Generated Phrase(s):\n");
@@ -32,18 +37,17 @@ fn main() {
             roll_seq.gen_new_sequence();
         }
         if let Some(p) = phrase.as_string() {
-            if matches.is_present("file") {
-                cache.push(p);
-            } else {
-                println!("{}", p);
-            }
+            cache.push(p);
         } else {
-            break
+            return
         }
         phrase.clear_phrase();
     }
+
     if let Some(fp) = matches.value_of("file") {
         let out = FileOut::new(fp.to_string(), cache);
-        out.write(&phrase)
+       out.write(&phrase)
+    } else {
+        OutputDisplay::print(&cache);
     }
 }
