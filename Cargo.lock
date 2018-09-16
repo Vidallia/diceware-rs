@@ -47,7 +47,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "fileio-prac"
+name = "diceware-rs"
 version = "0.2.0"
 dependencies = [
  "clap 2.27.1 (registry+https://github.com/rust-lang/crates.io-index)",
