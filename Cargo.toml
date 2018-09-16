@@ -1,5 +1,5 @@
 [package]
-name = "fileio-prac"
+name = "diceware-rs"
 version = "0.3.0"
 authors = ["vidallia <haxrhax@gmail.com>"]
 
